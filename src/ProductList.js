@@ -3,7 +3,7 @@ import { useCartContext } from "./App";
 import { useNavigate } from "react-router-dom";
 const ProductList = () => {
   const navigate = useNavigate();
-  const { data,cartItems } = useContext(useCartContext);
+  const { data,cartItems,setProduct } = useContext(useCartContext);
   console.log("data", cartItems);
  
   return (
@@ -30,7 +30,8 @@ const ProductList = () => {
           <p>{item.price}</p>
           <button
             onClick={() => {
-              navigate(`/detail/${item.id}`);
+             setProduct(item)
+             navigate("/detail")
             }}
           >
             View

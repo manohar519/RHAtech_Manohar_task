@@ -12,6 +12,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [data, setData] = useState([]);
+  const [product,setProduct]=useState([])
   const getItem = (id) => {
     const datas = data.filter((it) => it.id == id);
     console.log(datas);
@@ -29,13 +30,13 @@ function App() {
 
   return (
     <useCartContext.Provider
-      value={{ data, cartItems,setCartItems ,getItem,setTotal,total}}
+      value={{ data, cartItems,setCartItems ,getItem,setTotal,total,setProduct,product}}
     >
     <Navbar/>
       <Routes>
         <Route path="/" element={<ProductList />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/detail/:id" element={<ProductDetails />} />
+        <Route path="/detail" element={<ProductDetails />} />
         <Route path="/payment" element={<Payment/>}/>
       </Routes>
     </useCartContext.Provider>

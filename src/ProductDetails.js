@@ -4,17 +4,12 @@ import { useCartContext } from "./App";
 
 const ProductDetails = () => {
 
-  const [product, setProduct] = useState();
+//   const [product, setProduct] = useState();
   const parms = useParams();
   console.log(parms);
-  const { cartItems, getItem, setCartItems } =
+  const { cartItems, setCartItems,product } =
     useContext(useCartContext);
 
-  useEffect(() => {
-    const getItems = getItem(parms.id);
-    console.log(getItems);
-    setProduct(getItems[0]);
-  }, []);
 
   return (
     <div >
